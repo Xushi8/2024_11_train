@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.example</groupId>
-    <artifactId>2024_11_train</artifactId>
+    <artifactId>demo1</artifactId>
     <version>1.0.0</version>
     <name>demo1</name>
     <description>2024 11月实训后端代码</description>
@@ -128,14 +128,13 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
                 <configuration>
-                    <mainClass>com.example.demo1.Demo1Application</mainClass>
-                    <skip>true</skip>
+                    <mainClass>com.example.demo1.Demo1Application</mainClass> <!-- 这里设置你的主类 -->
                 </configuration>
                 <executions>
                     <execution>
                         <id>repackage</id>
                         <goals>
-                            <goal>repackage</goal>
+                            <goal>repackage</goal> <!-- 确保生成可执行的JAR文件 -->
                         </goals>
                     </execution>
                 </executions>
