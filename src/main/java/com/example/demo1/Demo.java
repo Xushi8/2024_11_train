@@ -1,4 +1,4 @@
-package com.example.demo1.pojo.com.example.demo1;
+package com.example.demo1;
 
 import com.example.demo1.pojo.User;
 import org.apache.ibatis.io.Resources;
