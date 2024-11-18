@@ -1,43 +1,43 @@
 package com.example.demo1.pojo;
 
 public class User {
-    private Integer id;
-    private String username;
-    private String password;
-    private Integer role;
+    private Integer ID;
+    private String Name;
+    private String Password;
+    private Integer Role;
     private String TenantName;
 
 
-    public Integer getId() {
-        return id;
+    public Integer getID() {
+        return ID;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setID(Integer ID) {
+        this.ID = ID;
     }
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return Name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String name) {
+        this.Name = name;
     }
 
     public String getPassword() {
-        return password;
+        return Password;
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.Password = password;
     }
 
     public Integer getRole() {
-        return role;
+        return Role;
     }
 
     public void setRole(Integer role) {
-        this.role = role;
+        this.Role = role;
     }
 
     public String getTenantName() {
@@ -51,10 +51,10 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", role=" + role +
+                "id=" + ID +
+                ", username='" + Name + '\'' +
+                ", password='" + Password + '\'' +
+                ", role=" + Role +
                 ", TenantName='" + TenantName + '\'' +
                 '}';
     }
