@@ -34,6 +34,12 @@ public class Demo {
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
         List<User> users = userMapper.select_all_users();
         System.out.println(users);
+        User user = userMapper.select_user_by_id(1);
+        System.out.println(user);
+        User user1 = userMapper.select_user(user);
+        System.out.println(user1);
+        User user2 = userMapper.select_user_by_Name("User B1");
+        System.out.println(user2);
 
         TenantMapper tenantMapper = sqlSession.getMapper(TenantMapper.class);
         List<Tenant> tenants = tenantMapper.select_all_tenants();

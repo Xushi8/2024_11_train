@@ -6,4 +6,15 @@
     <select id="select_all_users" resultType="com.example.demo1.pojo.User">
         select * from Users;
     </select>
+
+
+    <select id="select_user_by_id" resultType="com.example.demo1.pojo.User">
+        select *
+        from Users where ID = #{id}
+    </select>
+
+    <select id="select_user_by_Name" resultType="com.example.demo1.pojo.User">
+        select *
+        from Users where Name = #{Name}
+    </select>
 </mapper>
