@@ -8,11 +8,11 @@
         values (#{TenantName}, #{ContactName}, #{LoginPassword}, #{Phone}, #{CommunicationAddress}, #{PostalCode}, #{Email}, #{Role})
     </insert>
 
-    <delete id="delete_tenant">
+    <delete id="delete_tenant_by_ID">
         delete from Tenants where ID = #{ID}
     </delete>
 
-    <delete id="delete_tenants">
+    <delete id="delete_tenants_by_IDS">
         delete from Tenants where ID in
         <foreach collection="array" item="id" separator="," open="(" close=")">
             #{id}

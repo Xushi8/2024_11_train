@@ -43,9 +43,37 @@
 ---
 
 #### Tenants
+- ##### `insert_tenant`
+  - **描述**: 新增一个租户
+  - **参数**: 一个 `tenant` 对象
+
+- ##### `delete_tenant_by_ID`
+  - **描述**: 删除指定 ID 的租户
+  - **参数**: 一个 `int` 值，名称为 `ID`
+
+- ##### `delete_tenants_by_ids`
+  - **描述**: 删除指定数组中的多个租户
+  - **参数**: 一个 `int` 数组，名称随意
+
+- ##### `update_tenant`
+  - **描述**: 修改租户信息
+  - **参数**: 一个 `Tenant` 对象
+
 - ##### `select_all_tenants`
   - **描述**: 返回所有租户
   - **参数**: 无
+
+- ##### `select_tenant_by_ID`
+  - **描述**: 返回指定 ID 的租户
+  - **参数**: 一个 `int` 值，名称为 `ID`
+
+- ##### `select_tenant_by_Name`
+  - **描述**: 返回指定名称的租户
+  - **参数**: 一个 `String` 值，名称为 `Name`
+
+- ##### `select_tenant_by_Name_and_Password`
+  - **描述**: 返回指定名称和密码的租户
+  - **参数**: 两个 `String` 值，名称分别为 `Name` 和 `Password`
 
 ---
 

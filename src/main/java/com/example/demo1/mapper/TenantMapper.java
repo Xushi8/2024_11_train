@@ -8,8 +8,8 @@ import java.util.List;
 public interface TenantMapper {
     public int insert_tenant(Tenant tenant);
 
-    public int delete_tenant(int ID);
-    public int delete_tenants(int[] IDS);
+    public int delete_tenant_by_ID(int ID);
+    public int delete_tenants_by_IDS(int[] IDS);
 
     public int update_tenant(Tenant tenant);
 

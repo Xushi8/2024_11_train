@@ -3,11 +3,9 @@ package com.example.demo1;
 import com.example.demo1.mapper.ProjectMapper;
 import com.example.demo1.mapper.ProjectUserMapper;
 import com.example.demo1.mapper.TenantMapper;
-import com.example.demo1.mapper.UserMapper;
 import com.example.demo1.pojo.Project;
 import com.example.demo1.pojo.ProjectUser;
 import com.example.demo1.pojo.Tenant;
-import com.example.demo1.pojo.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -78,10 +76,10 @@ public class Demo {
         int res = tenantMapper.insert_tenant(tenant);
         System.out.println("增加的数量: " + res);
         int delete_id = 21;
-        res = tenantMapper.delete_tenant(delete_id);
+        res = tenantMapper.delete_tenant_by_ID(delete_id);
         System.out.println("删除的数量: " + res);
         int[] delete_ids = {23, 24, 10000};
-        res = tenantMapper.delete_tenants(delete_ids);
+        res = tenantMapper.delete_tenants_by_IDS(delete_ids);
         System.out.println("批量删除的数量: " + res);
 
         int id = 15;
