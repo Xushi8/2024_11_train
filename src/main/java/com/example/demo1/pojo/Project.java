@@ -22,7 +22,7 @@ public class Project {
 
     @Override
     public String toString() {
-        return "Projects{" +
+        return "Project{" +
                 "project_id=" + project_id +
                 ", tenant_id=" + tenant_id +
                 ", project_name='" + project_name + '\'' +

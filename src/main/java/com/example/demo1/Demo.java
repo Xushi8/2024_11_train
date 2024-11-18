@@ -47,6 +47,8 @@ public class Demo {
         List<ProjectUser> projectUsers = projectUserMapper.select_all_project_users();
         System.out.println(projectUsers);
 
+
+        System.out.println("1kj32kl1j3");
         sqlSession.close();
     }
 }
