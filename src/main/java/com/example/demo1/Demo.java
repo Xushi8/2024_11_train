@@ -1,5 +1,6 @@
 package com.example.demo1;
 
+import com.example.demo1.mapper.UserMapper;
 import com.example.demo1.pojo.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -20,9 +21,13 @@ public class Demo {
 
         SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        List<User> Users = sqlSession.selectList("test.select_all_user");
-        System.out.println(Users);
+//        List<User> Users = sqlSession.selectList("test.select_all_user");
+//        System.out.println(Users);
 
+
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        List<User> users = userMapper.select_all_users();
+        System.out.println(users);
 
         sqlSession.close();
     }
