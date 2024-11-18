@@ -3,18 +3,57 @@
 
 
 <mapper namespace="com.example.demo1.mapper.UserMapper">
+    <insert id="insert_user">
+        insert into Users (Name, Password, Role, TenantName)
+        values (#{Name}, #{Password}, #{Role}, #{TenantName})
+    </insert>
+    <update id="update_user">
+        update Users
+        <set>
+            <if test="Name != null and Name != ''">
+                Name = #{Name},
+            </if>
+            <if test="Password != null and Password != ''">
+                Password = #{Password},
+            </if>
+            <if test="Role != null">
+                Role = #{Role},
+            </if>
+            <if test="TenantName != null and TenantName != ''">
+                TenantName = #{TenantName},
+            </if>
+        </set>
+        where ID = #{ID}
+    </update>
+
+    <delete id="delete_user_by_ID">
+        delete from Users where ID = #{ID}
+    </delete>
+
+    <delete id="delete_user_by_IDS">
+        delete from Users where id
+        in
+        <foreach collection="array" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
+
     <select id="select_all_users" resultType="com.example.demo1.pojo.User">
         select * from Users;
     </select>
 
-
-    <select id="select_user_by_id" resultType="com.example.demo1.pojo.User">
+    <select id="select_user_by_ID" resultType="com.example.demo1.pojo.User">
         select *
-        from Users where ID = #{id}
+        from Users where ID = #{ID}
     </select>
 
     <select id="select_user_by_Name" resultType="com.example.demo1.pojo.User">
         select *
         from Users where Name = #{Name}
+    </select>
+
+    <select id="select_user_by_Name_and_Password" resultType="com.example.demo1.pojo.User">
+        select *
+        from Users where Name = #{Name} and Password = #{Password}
     </select>
 </mapper>
