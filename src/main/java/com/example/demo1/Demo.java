@@ -25,7 +25,7 @@ public class Demo {
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 
 
-        SqlSession sqlSession = sqlSessionFactory.openSession();
+        SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
 //        List<User> Users = sqlSession.selectList("test.select_all_user");
 //        System.out.println(Users);
