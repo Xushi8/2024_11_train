@@ -3,7 +3,7 @@
 
 
 <mapper namespace="com.example.demo1.mapper.ProjectMapper">
-    <select id="select_all_projects">
+    <select id="select_all_projects" resultType="com.example.demo1.pojo.Project">
         select * from Projects;
     </select>
 </mapper>
