@@ -7,6 +7,19 @@
         insert into Users (Name, Password, Role, TenantName)
         values (#{Name}, #{Password}, #{Role}, #{TenantName})
     </insert>
+
+
+    <delete id="delete_user_by_ID">
+        delete from Users where ID = #{ID}
+    </delete>
+
+    <delete id="delete_user_by_IDS">
+        delete from Users where ID in
+        <foreach collection="array" item="ID" separator="," open="(" close=")">
+            #{ID}
+        </foreach>
+    </delete>
+
     <update id="update_user">
         update Users
         <set>
@@ -25,18 +38,6 @@
         </set>
         where ID = #{ID}
     </update>
-
-    <delete id="delete_user_by_ID">
-        delete from Users where ID = #{ID}
-    </delete>
-
-    <delete id="delete_user_by_IDS">
-        delete from Users where id
-        in
-        <foreach collection="array" item="id" separator="," open="(" close=")">
-            #{id}
-        </foreach>
-    </delete>
 
     <select id="select_all_users" resultType="com.example.demo1.pojo.User">
         select * from Users;

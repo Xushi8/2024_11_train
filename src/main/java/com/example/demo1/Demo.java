@@ -31,6 +31,7 @@ public class Demo {
 //        System.out.println(Users);
 
         // user test
+        /*
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
         List<User> users = userMapper.select_all_users();
         System.out.println(users);
@@ -58,11 +59,43 @@ public class Demo {
         user2.setPassword("update");
         res = userMapper.update_user(user2);
         System.out.println("修改的数量: " + res);
+        */
 
         // Tenant
         TenantMapper tenantMapper = sqlSession.getMapper(TenantMapper.class);
         List<Tenant> tenants = tenantMapper.select_all_tenants();
         System.out.println(tenants);
+
+        Tenant tenant = new Tenant();
+        tenant.setTenantName("insert");
+        tenant.setContactName("insert");
+        tenant.setLoginPassword("password123");
+        tenant.setPhone("insert");
+        tenant.setCommunicationAddress("insert");
+        tenant.setPostalCode("insert");
+        tenant.setEmail("insert");
+        tenant.setRole(1);
+        int res = tenantMapper.insert_tenant(tenant);
+        System.out.println("增加的数量: " + res);
+        int delete_id = 21;
+        res = tenantMapper.delete_tenant(delete_id);
+        System.out.println("删除的数量: " + res);
+        int[] delete_ids = {23, 24, 10000};
+        res = tenantMapper.delete_tenants(delete_ids);
+        System.out.println("批量删除的数量: " + res);
+
+        int id = 15;
+        Tenant tenant1 = tenantMapper.select_tenant_by_ID(id);
+        System.out.println(tenant1);
+        tenant1.setContactName("update");
+        tenant1.setLoginPassword(null);
+        tenant1.setPhone(null);
+        res = tenantMapper.update_tenant(tenant1);
+        System.out.println("修改的数量: " + res);
+        Tenant tenant2 = tenantMapper.select_tenant_by_Name("Tenant A");
+        System.out.println(tenant2);
+        Tenant tenant3 = tenantMapper.select_tenant_by_Name_and_Password("Tenant B", "password1232311231212");
+        System.out.println(tenant3);
 
         ProjectMapper projectMapper = sqlSession.getMapper(ProjectMapper.class);
         List<Project> projects = projectMapper.select_all_projects();

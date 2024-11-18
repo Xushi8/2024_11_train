@@ -3,7 +3,67 @@
 
 
 <mapper namespace="com.example.demo1.mapper.TenantMapper">
+    <insert id="insert_tenant">
+        insert into Tenants (TenantName, ContactName, LoginPassword, Phone, CommunicationAddress, PostalCode, Email, Role)
+        values (#{TenantName}, #{ContactName}, #{LoginPassword}, #{Phone}, #{CommunicationAddress}, #{PostalCode}, #{Email}, #{Role})
+    </insert>
+
+    <delete id="delete_tenant">
+        delete from Tenants where ID = #{ID}
+    </delete>
+
+    <delete id="delete_tenants">
+        delete from Tenants where ID in
+        <foreach collection="array" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <update id="update_tenant">
+        update Tenants
+<!--        TenantName, ContactName, LoginPassword, Phone, CommunicationAddress, PostalCode, Email, Role -->
+        <set>
+            <if test="TenantName != null and TenantName != ''">
+                TenantName = #{TenantName},
+            </if>
+            <if test="ContactName != null and ContactName != ''">
+                ContactName = #{ContactName},
+            </if>
+            <if test="LoginPassword != null and LoginPassword != ''">
+                LoginPassword = #{LoginPassword},
+            </if>
+            <if test="Phone != null and Phone != ''">
+                Phone = #{Phone},
+            </if>
+            <if test="CommunicationAddress != null and CommunicationAddress != ''">
+                CommunicationAddress = #{CommunicationAddress},
+            </if>
+            <if test="PostalCode != null and PostalCode != ''">
+                PostalCode = #{PostalCode},
+            </if>
+            <if test="Email != null and Email != ''">
+                Email = #{Email},
+            </if>
+            <if test="Role != null">
+                Role = #{Role},
+            </if>
+        </set>
+        where ID = #{ID}
+    </update>
+
     <select id="select_all_tenants" resultType="com.example.demo1.pojo.Tenant">
         select * from Tenants;
+    </select>
+
+    <select id="select_tenant_by_ID" resultType="com.example.demo1.pojo.Tenant">
+        select * from Tenants where ID = #{ID};
+    </select>
+
+    <select id="select_tenant_by_Name" resultType="com.example.demo1.pojo.Tenant">
+        select * from Tenants where TenantName = #{TenantName}
+    </select>
+
+    <select id="select_tenant_by_Name_and_Password" resultType="com.example.demo1.pojo.Tenant">
+        select * from Tenants where TenantName = #{TenantName} and LoginPassword = #{LoginPassword}
     </select>
 </mapper>
