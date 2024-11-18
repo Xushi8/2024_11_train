@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface TenantMapper {
 
-    List<Tenant> select_all_tenants();
+    public List<Tenant> select_all_tenants();
 }

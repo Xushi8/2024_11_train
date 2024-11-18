@@ -1,9 +1,11 @@
 package com.example.demo1;
 
 import com.example.demo1.mapper.ProjectMapper;
+import com.example.demo1.mapper.ProjectUserMapper;
 import com.example.demo1.mapper.TenantMapper;
 import com.example.demo1.mapper.UserMapper;
 import com.example.demo1.pojo.Project;
+import com.example.demo1.pojo.ProjectUser;
 import com.example.demo1.pojo.Tenant;
 import com.example.demo1.pojo.User;
 import org.apache.ibatis.io.Resources;
@@ -40,6 +42,10 @@ public class Demo {
         ProjectMapper projectMapper = sqlSession.getMapper(ProjectMapper.class);
         List<Project> projects = projectMapper.select_all_projects();
         System.out.println(projects);
+
+        ProjectUserMapper projectUserMapper = sqlSession.getMapper(ProjectUserMapper.class);
+        List<ProjectUser> projectUsers = projectUserMapper.select_all_project_users();
+        System.out.println(projectUsers);
 
         sqlSession.close();
     }
