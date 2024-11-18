@@ -16,10 +16,6 @@ public interface UserMapper {
 
     public List<User> select_all_users();
     public User select_user_by_ID(int ID);
-    public default User select_user(User user){
-        return select_user_by_ID(user.getID());
-    }
     public User select_user_by_Name(String Name);
-
     public User select_user_by_Name_and_Password(@Param("Name") String Name, @Param("Password") String Password);
 }
