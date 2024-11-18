@@ -9,7 +9,6 @@ public interface UserMapper {
     int insert_user(User user);
 
     int delete_user_by_ID(int ID);
-
     int delete_user_by_IDS(int[] IDS); // 这个的命名无所谓
 
     int update_user(User user);

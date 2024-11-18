@@ -36,8 +36,6 @@ public class Demo {
         System.out.println(users);
         User user = userMapper.select_user_by_ID(1);
         System.out.println(user);
-        User user1 = userMapper.select_user(user);
-        System.out.println(user1);
         User user2 = userMapper.select_user_by_Name("User B1");
         System.out.println(user2);
         User user3 = userMapper.select_user_by_Name_and_Password("User B2", "password123");
@@ -57,8 +55,8 @@ public class Demo {
         res = userMapper.delete_user_by_IDS(delete_ids);
         System.out.println("批量删除的数量: " + res);
 
-        user1.setPassword("update");
-        res = userMapper.update_user(user1);
+        user2.setPassword("update");
+        res = userMapper.update_user(user2);
         System.out.println("修改的数量: " + res);
 
         // Tenant
