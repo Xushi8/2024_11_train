@@ -45,7 +45,7 @@
 #### Tenants
 - ##### `insert_tenant`
   - **描述**: 新增一个租户
-  - **参数**: 一个 `tenant` 对象
+  - **参数**: 一个 `Tenant` 对象
 
 - ##### `delete_tenant_by_ID`
   - **描述**: 删除指定 ID 的租户
@@ -78,10 +78,34 @@
 ---
 
 #### Projects
+- ##### `insert_project`
+  - **描述**: 新增一个项目
+  - **参数**: 一个 `Project` 对象
+
+- ##### `delete_project_by_ID`
+  - **描述**: 删除指定 ID 的项目
+  - **参数**: 一个 `int` 值，名称为 `ID`
+
+- ##### `delete_project_by_IDS`
+  - **描述**: 删除指定数组中的多个项目
+  - **参数**: 一个 `int` 数组，名称为 `IDS`
+
+- ##### `update_project`
+  - **描述**: 修改项目信息
+  - **参数**: 一个 `Project` 对象
+
 - ##### `select_all_projects`
-  - **描述**: 返回所有项目
+  - **描述**: 返回所有的项目
   - **参数**: 无
 
-- ##### `select_all_project_users`
-  - **描述**: 返回所有项目用户
-  - **参数**: 无
+- ##### `select_project_by_ID`
+  - **描述**: 返回指定 ID 的项目
+  - **参数**: 一个 `int` 值，名称为 `ID`
+
+- ##### `select_project_by_Name`
+  - **描述**: 返回指定名称的项目
+  - **参数**: 一个 `String` 值，名称为 `Name`
+
+- ##### `select_projects_by_tenant_id`
+  - **描述**: 返回指定指定租户 ID 下的所有项目
+  - **参数**:  一个 `int` 值，名称为 `ID`

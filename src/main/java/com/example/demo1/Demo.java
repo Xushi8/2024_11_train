@@ -1,11 +1,7 @@
 package com.example.demo1;
 
 import com.example.demo1.mapper.ProjectMapper;
-import com.example.demo1.mapper.ProjectUserMapper;
-import com.example.demo1.mapper.TenantMapper;
 import com.example.demo1.pojo.Project;
-import com.example.demo1.pojo.ProjectUser;
-import com.example.demo1.pojo.Tenant;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -102,7 +98,7 @@ public class Demo {
         List<Project> projects = projectMapper.select_all_projects();
         System.out.println(projects);
         projects.get(5).setProject_name("insert");
-        int res = projectMapper.insert(projects.get(5));
+        int res = projectMapper.insert_project(projects.get(5));
         System.out.println("增加的数量: " + res);
 
         res = projectMapper.delete_project_by_ID(5);

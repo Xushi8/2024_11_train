@@ -3,7 +3,7 @@
 
 
 <mapper namespace="com.example.demo1.mapper.ProjectMapper">
-    <insert id="insert">
+    <insert id="insert_project">
         insert into Projects (tenant_id, project_name, received_date, evaluation_start_date, evaluation_end_date, project_overview, team_location, valuer, reviewer, tech_reviewer, approver, state, type, version, quantity)
         values (#{tenant_id}, #{project_name}, #{received_date}, #{evaluation_start_date}, #{evaluation_end_date}, #{project_overview}, #{team_location}, #{valuer}, #{reviewer}, #{tech_reviewer}, #{approver}, #{state}, #{type}, #{version}, #{quantity})
     </insert>
