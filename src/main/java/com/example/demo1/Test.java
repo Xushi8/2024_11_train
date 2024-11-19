@@ -1,11 +1,7 @@
 package com.example.demo1;
 
 import com.example.demo1.mapper.ProjectMapper;
-import com.example.demo1.mapper.TenantMapper;
-import com.example.demo1.mapper.UserMapper;
 import com.example.demo1.pojo.Project;
-import com.example.demo1.pojo.Tenant;
-import com.example.demo1.pojo.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -15,7 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
-public class Demo {
+public class Test {
 
     public static void main(String[] args) throws IOException {
         String resource = "mybatis-config.xml";
