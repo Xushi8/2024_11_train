@@ -10,7 +10,7 @@
 #### Users
 - ##### `insert_user`
   - **描述**: 新增一个用户
-  - **参数**: 一个 `User` 对象
+  - **参数**: 一个 `User` 对象, 名称为 `user`
 
 - ##### `delete_user_by_ID`
   - **描述**: 删除指定 ID 的用户
@@ -22,7 +22,7 @@
 
 - ##### `update_user`
   - **描述**: 修改用户信息
-  - **参数**: 一个 `User` 对象
+  - **参数**: 一个 `User` 对象, 名称为 `user`
 
 - ##### `select_all_users`
   - **描述**: 返回所有用户
@@ -45,7 +45,7 @@
 #### Tenants
 - ##### `insert_tenant`
   - **描述**: 新增一个租户
-  - **参数**: 一个 `Tenant` 对象
+  - **参数**: 一个 `Tenant` 对象, 名称为 `tenant`
 
 - ##### `delete_tenant_by_ID`
   - **描述**: 删除指定 ID 的租户
@@ -57,7 +57,7 @@
 
 - ##### `update_tenant`
   - **描述**: 修改租户信息
-  - **参数**: 一个 `Tenant` 对象
+  - **参数**: 一个 `Tenant` 对象, 名称为 `tenant`
 
 - ##### `select_all_tenants`
   - **描述**: 返回所有租户
@@ -80,7 +80,7 @@
 #### Projects
 - ##### `insert_project`
   - **描述**: 新增一个项目
-  - **参数**: 一个 `Project` 对象
+  - **参数**: 一个 `Project` 对象, 名称为 `project`
 
 - ##### `delete_project_by_ID`
   - **描述**: 删除指定 ID 的项目
@@ -92,7 +92,7 @@
 
 - ##### `update_project`
   - **描述**: 修改项目信息
-  - **参数**: 一个 `Project` 对象
+  - **参数**: 一个 `Project` 对象, 名称为 `project`
 
 - ##### `select_all_projects`
   - **描述**: 返回所有的项目
