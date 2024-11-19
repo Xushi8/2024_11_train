@@ -1,17 +1,7 @@
 ## 2024年11月实训后端
 
 ### 接口设置
-
-接口文件位置：`src/main/resources/application.yml`
-
 - **端口**: `8070`
-
-**数据库配置**：
-
-- 用户名: `root`
-- 密码: `root`
-- 数据库连接: `jdbc:mysql:///train?useSSL=false`  
-  > 这里的 `train` 替换为自己的数据库名称。
 
 ---
 

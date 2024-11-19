@@ -30,6 +30,7 @@ public class UserServiceImpl implements UserService{
     }
 
     public List<User> select_all_users(){
+
         return userMapper.select_all_users();
     }
     public User select_user_by_id(int id){
