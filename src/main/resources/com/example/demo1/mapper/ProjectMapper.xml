@@ -4,8 +4,14 @@
 
 <mapper namespace="com.example.demo1.mapper.ProjectMapper">
     <insert id="insert_project">
-        insert into Projects (tenant_id, project_name, received_date, evaluation_start_date, evaluation_end_date, project_overview, team_location, valuer, reviewer, tech_reviewer, approver, state, type, version, quantity)
-        values (#{tenant_id}, #{project_name}, #{received_date}, #{evaluation_start_date}, #{evaluation_end_date}, #{project_overview}, #{team_location}, #{valuer}, #{reviewer}, #{tech_reviewer}, #{approver}, #{state}, #{type}, #{version}, #{quantity})
+        insert into Projects (tenant_id, name, received_date, evaluation_start_date,
+        evaluation_end_date, project_overview, team_location, valuer, reviewer, tech_reviewer,
+        approver, state, type, version, quantity, evaluation_amount, remarks)
+
+        values (#{tenant_id}, #{name}, #{received_date}, #{evaluation_start_date},
+        #{evaluation_end_date}, #{project_overview}, #{team_location}, #{valuer}, #{reviewer},
+        #{tech_reviewer}, #{approver}, #{state}, #{type}, #{version}, #{quantity},
+        #{evaluation_amount}, #{remarks})
     </insert>
 
     <update id="update_project">
@@ -14,8 +20,8 @@
             <if test="tenant_id != null">
                 tenant_id = #{tenant_id},
             </if>
-            <if test="project_name != null and project_name != ''">
-                project_name = #{project_name},
+            <if test="name != null and name != ''">
+                name = #{name},
             </if>
             <if test="received_date != null">
                 received_date = #{received_date},
@@ -56,18 +62,24 @@
             <if test="quantity != null">
                 quantity = #{quantity},
             </if>
+            <if test="evaluation_amount != null">
+                evaluation_amount = #{evaluation_amount},
+            </if>
+            <if test="remarks != null and remarks != ''">
+                remarks = #{remarks},
+            </if>
         </set>
-        where project_id = #{project_id}
+        where id = #{id}
     </update>
 
-    <delete id="delete_project_by_ID">
-        delete from Projects where project_id = #{project_id}
+    <delete id="delete_project_by_id">
+        delete from Projects where id = #{id}
     </delete>
 
-    <delete id="delete_project_by_IDS">
-        delete from Projects where project_id in
-        <foreach collection="array" item="ID" separator="," open="(" close=")">
-            #{ID}
+    <delete id="delete_project_by_ids">
+        delete from Projects where id in
+        <foreach collection="array" item="id" separator="," open="(" close=")">
+            #{id}
         </foreach>
     </delete>
 
@@ -76,12 +88,12 @@
         select * from Projects;
     </select>
 
-    <select id="select_project_by_ID" resultType="com.example.demo1.pojo.Project">
-        select * from Projects where project_id = #{project_id}
+    <select id="select_project_by_id" resultType="com.example.demo1.pojo.Project">
+        select * from Projects where id = #{id}
     </select>
 
-    <select id="select_project_by_Name" resultType="com.example.demo1.pojo.Project">
-        select * from Projects where project_name = #{project_name}
+    <select id="select_project_by_name" resultType="com.example.demo1.pojo.Project">
+        select * from Projects where name = #{name}
     </select>
 
     <select id="select_projects_by_tenant_id" resultType="com.example.demo1.pojo.Project">

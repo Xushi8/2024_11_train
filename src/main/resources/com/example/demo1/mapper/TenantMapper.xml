@@ -4,16 +4,16 @@
 
 <mapper namespace="com.example.demo1.mapper.TenantMapper">
     <insert id="insert_tenant">
-        insert into Tenants (TenantName, ContactName, LoginPassword, Phone, CommunicationAddress, PostalCode, Email, Role)
-        values (#{TenantName}, #{ContactName}, #{LoginPassword}, #{Phone}, #{CommunicationAddress}, #{PostalCode}, #{Email}, #{Role})
+        insert into Tenants (name, contact_name, password, phone, communication_address, postal_code, email, role)
+        values (#{name}, #{contact_name}, #{password}, #{phone}, #{communication_address}, #{postal_code}, #{email}, #{role})
     </insert>
 
-    <delete id="delete_tenant_by_ID">
-        delete from Tenants where ID = #{ID}
+    <delete id="delete_tenant_by_id">
+        delete from Tenants where id = #{id}
     </delete>
 
-    <delete id="delete_tenants_by_IDS">
-        delete from Tenants where ID in
+    <delete id="delete_tenants_by_ids">
+        delete from Tenants where id in
         <foreach collection="array" item="id" separator="," open="(" close=")">
             #{id}
         </foreach>
@@ -21,49 +21,48 @@
 
     <update id="update_tenant">
         update Tenants
-<!--        TenantName, ContactName, LoginPassword, Phone, CommunicationAddress, PostalCode, Email, Role -->
         <set>
-            <if test="TenantName != null and TenantName != ''">
-                TenantName = #{TenantName},
+            <if test="name != null and name != ''">
+                name = #{name},
             </if>
-            <if test="ContactName != null and ContactName != ''">
-                ContactName = #{ContactName},
+            <if test="contact_name != null and contact_name != ''">
+                contact_name = #{contact_name},
             </if>
-            <if test="LoginPassword != null and LoginPassword != ''">
-                LoginPassword = #{LoginPassword},
+            <if test="password != null and password != ''">
+                password = #{password},
             </if>
-            <if test="Phone != null and Phone != ''">
-                Phone = #{Phone},
+            <if test="phone != null and phone != ''">
+                phone = #{phone},
             </if>
-            <if test="CommunicationAddress != null and CommunicationAddress != ''">
-                CommunicationAddress = #{CommunicationAddress},
+            <if test="communication_address != null and communication_address != ''">
+                communication_address = #{communication_address},
             </if>
-            <if test="PostalCode != null and PostalCode != ''">
-                PostalCode = #{PostalCode},
+            <if test="postal_code != null and postal_code != ''">
+                postal_code = #{postal_code},
             </if>
-            <if test="Email != null and Email != ''">
-                Email = #{Email},
+            <if test="email != null and email != ''">
+                email = #{email},
             </if>
-            <if test="Role != null">
-                Role = #{Role},
+            <if test="role != null">
+                role = #{role},
             </if>
         </set>
-        where ID = #{ID}
+        where id = #{id}
     </update>
 
     <select id="select_all_tenants" resultType="com.example.demo1.pojo.Tenant">
         select * from Tenants;
     </select>
 
-    <select id="select_tenant_by_ID" resultType="com.example.demo1.pojo.Tenant">
-        select * from Tenants where ID = #{ID};
+    <select id="select_tenant_by_id" resultType="com.example.demo1.pojo.Tenant">
+        select * from Tenants where id = #{id};
     </select>
 
-    <select id="select_tenant_by_Name" resultType="com.example.demo1.pojo.Tenant">
-        select * from Tenants where TenantName = #{TenantName}
+    <select id="select_tenant_by_name" resultType="com.example.demo1.pojo.Tenant">
+        select * from Tenants where name = #{name}
     </select>
 
-    <select id="select_tenant_by_Name_and_Password" resultType="com.example.demo1.pojo.Tenant">
-        select * from Tenants where TenantName = #{TenantName} and LoginPassword = #{LoginPassword}
+    <select id="select_tenant_by_name_and_password" resultType="com.example.demo1.pojo.Tenant">
+        select * from Tenants where name = #{name} and password = #{password}
     </select>
 </mapper>

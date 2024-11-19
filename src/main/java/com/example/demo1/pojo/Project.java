@@ -1,11 +1,12 @@
 package com.example.demo1.pojo;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public class Project {
-    private Integer project_id;
+    private Integer id;
+    private String name;
     private Integer tenant_id;
-    private String project_name;
     private LocalDate received_date;
     private LocalDate evaluation_start_date;
     private LocalDate evaluation_end_date;
@@ -19,13 +20,15 @@ public class Project {
     private String type;
     private String version;
     private Integer quantity;
+    private BigDecimal evaluation_amount;
+    private String remarks;
 
     @Override
     public String toString() {
         return "Project{" +
-                "project_id=" + project_id +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", tenant_id=" + tenant_id +
-                ", project_name='" + project_name + '\'' +
                 ", received_date=" + received_date +
                 ", evaluation_start_date=" + evaluation_start_date +
                 ", evaluation_end_date=" + evaluation_end_date +
@@ -39,15 +42,25 @@ public class Project {
                 ", type='" + type + '\'' +
                 ", version='" + version + '\'' +
                 ", quantity=" + quantity +
+                ", evaluation_amount=" + evaluation_amount +
+                ", remarks='" + remarks + '\'' +
                 '}';
     }
 
-    public Integer getProject_id() {
-        return project_id;
+    public Integer getId() {
+        return id;
     }
 
-    public void setProject_id(Integer project_id) {
-        this.project_id = project_id;
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Integer getTenant_id() {
@@ -56,14 +69,6 @@ public class Project {
 
     public void setTenant_id(Integer tenant_id) {
         this.tenant_id = tenant_id;
-    }
-
-    public String getProject_name() {
-        return project_name;
-    }
-
-    public void setProject_name(String project_name) {
-        this.project_name = project_name;
     }
 
     public LocalDate getReceived_date() {
@@ -168,5 +173,21 @@ public class Project {
 
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
+    }
+
+    public BigDecimal getEvaluation_amount() {
+        return evaluation_amount;
+    }
+
+    public void setEvaluation_amount(BigDecimal evaluation_amount) {
+        this.evaluation_amount = evaluation_amount;
+    }
+
+    public String getRemarks() {
+        return remarks;
+    }
+
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
     }
 }

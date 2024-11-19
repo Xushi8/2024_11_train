@@ -1,100 +1,100 @@
 package com.example.demo1.pojo;
 
 public class Tenant {
-    private Integer ID;
-    private String TenantName;
-    private String ContactName;
-    private String LoginPassword;
-    private String Phone;
-    private String CommunicationAddress;
-    private String PostalCode;
-    private String Email;
-    private Integer Role;
+    private Integer id;
+    private String name;
+    private String password;
+    private String contact_name;
+    private String phone;
+    private String communication_address;
+    private String postal_code;
+    private String email;
+    private Integer role;
 
     @Override
     public String toString() {
         return "Tenant{" +
-                "ID=" + ID +
-                ", TenantName='" + TenantName + '\'' +
-                ", ContactName='" + ContactName + '\'' +
-                ", LoginPassword='" + LoginPassword + '\'' +
-                ", Phone='" + Phone + '\'' +
-                ", CommunicationAddress='" + CommunicationAddress + '\'' +
-                ", PostalCode='" + PostalCode + '\'' +
-                ", Email='" + Email + '\'' +
-                ", Role=" + Role +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", contact_name='" + contact_name + '\'' +
+                ", phone='" + phone + '\'' +
+                ", communication_address='" + communication_address + '\'' +
+                ", postal_code='" + postal_code + '\'' +
+                ", email='" + email + '\'' +
+                ", role=" + role +
                 '}';
     }
 
-    public Integer getID() {
-        return ID;
+    public Integer getId() {
+        return id;
     }
 
-    public void setID(Integer ID) {
-        this.ID = ID;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getTenantName() {
-        return TenantName;
+    public String getName() {
+        return name;
     }
 
-    public void setTenantName(String tenantName) {
-        TenantName = tenantName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getContactName() {
-        return ContactName;
+    public String getPassword() {
+        return password;
     }
 
-    public void setContactName(String contactName) {
-        ContactName = contactName;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getLoginPassword() {
-        return LoginPassword;
+    public String getContact_name() {
+        return contact_name;
     }
 
-    public void setLoginPassword(String loginPassword) {
-        LoginPassword = loginPassword;
+    public void setContact_name(String contact_name) {
+        this.contact_name = contact_name;
     }
 
     public String getPhone() {
-        return Phone;
+        return phone;
     }
 
     public void setPhone(String phone) {
-        Phone = phone;
+        this.phone = phone;
     }
 
-    public String getCommunicationAddress() {
-        return CommunicationAddress;
+    public String getCommunication_address() {
+        return communication_address;
     }
 
-    public void setCommunicationAddress(String communicationAddress) {
-        CommunicationAddress = communicationAddress;
+    public void setCommunication_address(String communication_address) {
+        this.communication_address = communication_address;
     }
 
-    public String getPostalCode() {
-        return PostalCode;
+    public String getPostal_code() {
+        return postal_code;
     }
 
-    public void setPostalCode(String postalCode) {
-        PostalCode = postalCode;
+    public void setPostal_code(String postal_code) {
+        this.postal_code = postal_code;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 
     public Integer getRole() {
-        return Role;
+        return role;
     }
 
     public void setRole(Integer role) {
-        Role = role;
+        this.role = role;
     }
 }

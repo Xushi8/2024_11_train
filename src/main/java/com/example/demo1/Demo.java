@@ -1,8 +1,6 @@
 package com.example.demo1;
 
-import com.example.demo1.mapper.ProjectMapper;
 import com.example.demo1.mapper.UserMapper;
-import com.example.demo1.pojo.Project;
 import com.example.demo1.pojo.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -30,25 +28,25 @@ public class Demo {
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
         List<User> users = userMapper.select_all_users();
         System.out.println(users);
-        User user = userMapper.select_user_by_ID(1);
+        User user = userMapper.select_user_by_id(1);
         System.out.println(user);
-        User user2 = userMapper.select_user_by_Name("User B1");
+        User user2 = userMapper.select_user_by_name("User B1");
         System.out.println(user2);
-        User user3 = userMapper.select_user_by_Name_and_Password("User B2", "password123");
+        User user3 = userMapper.select_user_by_name_and_password("User B2", "password123");
         System.out.println(user3);
         User user4 = new User();
         user4.setName("insert");
         user4.setPassword("password123");
         user4.setRole(2);
-        user4.setTenantName("Tenant A");
+        user4.setTenant_name("Tenant A");
         int res = userMapper.insert_user(user4);
         System.out.println("增加的数量: " + res);
         int delete_id = 21;
-        res = userMapper.delete_user_by_ID(delete_id);
+        res = userMapper.delete_user_by_id(delete_id);
         System.out.println("删除的数量: " + res);
 
         int[] delete_ids = {5, 6, 7, 8};
-        res = userMapper.delete_user_by_IDS(delete_ids);
+        res = userMapper.delete_user_by_ids(delete_ids);
         System.out.println("批量删除的数量: " + res);
 
         user2.setPassword("update");

@@ -8,14 +8,14 @@ import java.util.List;
 public interface UserMapper {
     public int insert_user(User user);
 
-    public int delete_user_by_ID(int ID);
-    public int delete_user_by_IDS(int[] IDS);
+    public int delete_user_by_id(int id);
+    public int delete_user_by_ids(int[] ids);
 
     public int update_user(User user);
 
     public List<User> select_all_users();
-    public User select_user_by_ID(int ID);
-    public User select_user_by_Name(String Name);
-    public User select_user_by_Name_and_Password(@Param("Name") String Name, @Param("Password") String Password);
-    public List<User> select_users_by_project_id(@Param("project_id") int ID);
+    public User select_user_by_id(int id);
+    public User select_user_by_name(String name);
+    public User select_user_by_name_and_password(@Param("name") String name, @Param("password") String password);
+    public List<User> select_users_by_project_id(@Param("project_id") int id);
 }
