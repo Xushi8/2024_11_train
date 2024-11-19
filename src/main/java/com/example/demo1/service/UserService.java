@@ -1,4 +1,4 @@
-package com.example.demo1.server;
+package com.example.demo1.service;
 
 import com.example.demo1.mapper.UserMapper;
 import com.example.demo1.pojo.User;
