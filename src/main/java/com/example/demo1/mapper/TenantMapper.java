@@ -1,10 +1,12 @@
 package com.example.demo1.mapper;
 
 import com.example.demo1.pojo.Tenant;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+@Mapper
 public interface TenantMapper {
     public int insert_tenant(Tenant tenant);
 
