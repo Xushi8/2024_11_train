@@ -60,6 +60,7 @@ public class Demo {
         */
 
         // Tenant
+        /*
         TenantMapper tenantMapper = sqlSession.getMapper(TenantMapper.class);
         List<Tenant> tenants = tenantMapper.select_all_tenants();
         System.out.println(tenants);
@@ -94,17 +95,32 @@ public class Demo {
         System.out.println(tenant2);
         Tenant tenant3 = tenantMapper.select_tenant_by_Name_and_Password("Tenant B", "password1232311231212");
         System.out.println(tenant3);
+        */
 
+        // project
         ProjectMapper projectMapper = sqlSession.getMapper(ProjectMapper.class);
         List<Project> projects = projectMapper.select_all_projects();
         System.out.println(projects);
+        projects.get(5).setProject_name("insert");
+        int res = projectMapper.insert(projects.get(5));
+        System.out.println("增加的数量: " + res);
 
-        ProjectUserMapper projectUserMapper = sqlSession.getMapper(ProjectUserMapper.class);
-        List<ProjectUser> projectUsers = projectUserMapper.select_all_project_users();
-        System.out.println(projectUsers);
+        res = projectMapper.delete_project_by_ID(5);
+        System.out.println("删除的数量: " + res);
+        int[] delete_ids = {12, 13, 16};
+        res = projectMapper.delete_project_by_IDS(delete_ids);
+        System.out.println("批量删除的数量: " + res);
 
+        projects.get(3).setProject_name("update");
+        res = projectMapper.update_project(projects.get(3));
+        System.out.println("修改的数量: " + res);
 
-        System.out.println("1kj32kl1j3");
+        Project p1 = projectMapper.select_project_by_Name("Project Eta");
+        System.out.println(p1);
+
+        projects = projectMapper.select_projects_by_tenant_id(2);
+        System.out.println(projects);
+
         sqlSession.close();
     }
 }

@@ -3,7 +3,88 @@
 
 
 <mapper namespace="com.example.demo1.mapper.ProjectMapper">
+    <insert id="insert">
+        insert into Projects (tenant_id, project_name, received_date, evaluation_start_date, evaluation_end_date, project_overview, team_location, valuer, reviewer, tech_reviewer, approver, state, type, version, quantity)
+        values (#{tenant_id}, #{project_name}, #{received_date}, #{evaluation_start_date}, #{evaluation_end_date}, #{project_overview}, #{team_location}, #{valuer}, #{reviewer}, #{tech_reviewer}, #{approver}, #{state}, #{type}, #{version}, #{quantity})
+    </insert>
+
+    <update id="update_project">
+        update Projects
+        <set>
+            <if test="tenant_id != null">
+                tenant_id = #{tenant_id},
+            </if>
+            <if test="project_name != null and project_name != ''">
+                project_name = #{project_name},
+            </if>
+            <if test="received_date != null">
+                received_date = #{received_date},
+            </if>
+            <if test="evaluation_start_date != null">
+                evaluation_start_date = #{evaluation_start_date},
+            </if>
+            <if test="evaluation_end_date != null">
+                evaluation_end_date = #{evaluation_end_date},
+            </if>
+            <if test="project_overview != null and project_overview != ''">
+                project_overview = #{project_overview},
+            </if>
+            <if test="team_location != null and team_location != ''">
+                team_location = #{team_location},
+            </if>
+            <if test="valuer != null and valuer != ''">
+                valuer = #{valuer},
+            </if>
+            <if test="reviewer != null and reviewer != ''">
+                reviewer = #{reviewer},
+            </if>
+            <if test="tech_reviewer != null and tech_reviewer != ''">
+                tech_reviewer = #{tech_reviewer},
+            </if>
+            <if test="approver != null and approver != ''">
+                approver = #{approver},
+            </if>
+            <if test="state != null">
+                state = #{state},
+            </if>
+            <if test="type != null and type != ''">
+                type = #{type},
+            </if>
+            <if test="version != null and version != ''">
+                version = #{version},
+            </if>
+            <if test="quantity != null">
+                quantity = #{quantity},
+            </if>
+        </set>
+        where project_id = #{project_id}
+    </update>
+
+    <delete id="delete_project_by_ID">
+        delete from Projects where project_id = #{project_id}
+    </delete>
+
+    <delete id="delete_project_by_IDS">
+        delete from Projects where project_id in
+        <foreach collection="array" item="ID" separator="," open="(" close=")">
+            #{ID}
+        </foreach>
+    </delete>
+
+
     <select id="select_all_projects" resultType="com.example.demo1.pojo.Project">
         select * from Projects;
+    </select>
+
+    <select id="select_project_by_ID" resultType="com.example.demo1.pojo.Project">
+        select * from Projects where project_id = #{project_id}
+    </select>
+
+    <select id="select_project_by_Name" resultType="com.example.demo1.pojo.Project">
+        select * from Projects where project_name = #{project_name}
+    </select>
+
+    <select id="select_projects_by_tenant_id" resultType="com.example.demo1.pojo.Project">
+        select * from Projects where tenant_id = #{tenant_id}
     </select>
 </mapper>
