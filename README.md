@@ -40,6 +40,10 @@
   - **描述**: 返回指定名称和密码的用户
   - **参数**: 两个 `String` 值，名称分别为 `Name` 和 `Password`
 
+- ##### `select_users_by_project_id`
+  - **描述**: 返回指定指定项目 ID 下的所有User
+  - **参数**:  一个 `int` 值，名称为 `ID`
+
 ---
 
 #### Tenants

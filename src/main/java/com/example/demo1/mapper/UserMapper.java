@@ -17,4 +17,5 @@ public interface UserMapper {
     public User select_user_by_ID(int ID);
     public User select_user_by_Name(String Name);
     public User select_user_by_Name_and_Password(@Param("Name") String Name, @Param("Password") String Password);
+    public List<User> select_users_by_project_id(@Param("project_id") int ID);
 }

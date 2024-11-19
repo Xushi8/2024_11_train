@@ -57,4 +57,11 @@
         select *
         from Users where Name = #{Name} and Password = #{Password}
     </select>
+
+    <select id="select_users_by_project_id" resultType="com.example.demo1.pojo.User">
+        select u.*
+        from ProjectUsers pu
+        join Users u ON pu.UserID = u.ID
+        where pu.ProjectID = #{project_id}
+    </select>
 </mapper>

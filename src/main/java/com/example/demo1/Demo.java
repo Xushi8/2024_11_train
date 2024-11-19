@@ -1,7 +1,9 @@
 package com.example.demo1;
 
 import com.example.demo1.mapper.ProjectMapper;
+import com.example.demo1.mapper.UserMapper;
 import com.example.demo1.pojo.Project;
+import com.example.demo1.pojo.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -25,7 +27,6 @@ public class Demo {
 //        System.out.println(Users);
 
         // user test
-        /*
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
         List<User> users = userMapper.select_all_users();
         System.out.println(users);
@@ -53,7 +54,9 @@ public class Demo {
         user2.setPassword("update");
         res = userMapper.update_user(user2);
         System.out.println("修改的数量: " + res);
-        */
+
+        List<User> users2 = userMapper.select_users_by_project_id(7);
+        System.out.println(users2);
 
         // Tenant
         /*
@@ -94,6 +97,7 @@ public class Demo {
         */
 
         // project
+        /*
         ProjectMapper projectMapper = sqlSession.getMapper(ProjectMapper.class);
         List<Project> projects = projectMapper.select_all_projects();
         System.out.println(projects);
@@ -116,6 +120,7 @@ public class Demo {
 
         projects = projectMapper.select_projects_by_tenant_id(2);
         System.out.println(projects);
+        */
 
         sqlSession.close();
     }

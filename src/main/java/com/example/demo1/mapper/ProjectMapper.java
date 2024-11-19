@@ -1,6 +1,7 @@
 package com.example.demo1.mapper;
 
 import com.example.demo1.pojo.Project;
+import com.example.demo1.pojo.User;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
