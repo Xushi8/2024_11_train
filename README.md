@@ -51,7 +51,7 @@
   - **描述**: 删除指定 ID 的租户
   - **参数**: 一个 `int` 值，名称为 `ID`
 
-- ##### `delete_tenants_by_ids`
+- ##### `delete_tenants_by_IDS`
   - **描述**: 删除指定数组中的多个租户
   - **参数**: 一个 `int` 数组，名称为 `IDS`
 
