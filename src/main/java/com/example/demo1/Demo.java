@@ -1,6 +1,10 @@
 package com.example.demo1;
 
+import com.example.demo1.mapper.ProjectMapper;
+import com.example.demo1.mapper.TenantMapper;
 import com.example.demo1.mapper.UserMapper;
+import com.example.demo1.pojo.Project;
+import com.example.demo1.pojo.Tenant;
 import com.example.demo1.pojo.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -25,14 +29,15 @@ public class Demo {
 //        System.out.println(Users);
 
         // user test
+        /*
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
         List<User> users = userMapper.select_all_users();
         System.out.println(users);
         User user = userMapper.select_user_by_id(1);
         System.out.println(user);
-        User user2 = userMapper.select_user_by_name("User B1");
+        User user2 = userMapper.select_user_by_name("User10");
         System.out.println(user2);
-        User user3 = userMapper.select_user_by_name_and_password("User B2", "password123");
+        User user3 = userMapper.select_user_by_name_and_password("User11", "password11");
         System.out.println(user3);
         User user4 = new User();
         user4.setName("insert");
@@ -55,6 +60,7 @@ public class Demo {
 
         List<User> users2 = userMapper.select_users_by_project_id(7);
         System.out.println(users2);
+        */
 
         // Tenant
         /*
@@ -63,62 +69,60 @@ public class Demo {
         System.out.println(tenants);
 
         Tenant tenant = new Tenant();
-        tenant.setTenantName("insert");
-        tenant.setContactName("insert");
-        tenant.setLoginPassword("password123");
+        tenant.setName("insert");
+        tenant.setContact_name("insert");
+        tenant.setPassword("password123");
         tenant.setPhone("insert");
-        tenant.setCommunicationAddress("insert");
-        tenant.setPostalCode("insert");
+        tenant.setCommunication_address("insert");
+        tenant.setPostal_code("insert");
         tenant.setEmail("insert");
         tenant.setRole(1);
         int res = tenantMapper.insert_tenant(tenant);
         System.out.println("增加的数量: " + res);
         int delete_id = 21;
-        res = tenantMapper.delete_tenant_by_ID(delete_id);
+        res = tenantMapper.delete_tenant_by_id(delete_id);
         System.out.println("删除的数量: " + res);
-        int[] delete_ids = {23, 24, 10000};
-        res = tenantMapper.delete_tenants_by_IDS(delete_ids);
+        int[] delete_ids = {13, 14, 10000};
+        res = tenantMapper.delete_tenants_by_ids(delete_ids);
         System.out.println("批量删除的数量: " + res);
 
         int id = 15;
-        Tenant tenant1 = tenantMapper.select_tenant_by_ID(id);
+        Tenant tenant1 = tenantMapper.select_tenant_by_id(id);
         System.out.println(tenant1);
-        tenant1.setContactName("update");
-        tenant1.setLoginPassword(null);
+        tenant1.setContact_name("update");
+        tenant1.setPassword(null);
         tenant1.setPhone(null);
         res = tenantMapper.update_tenant(tenant1);
         System.out.println("修改的数量: " + res);
-        Tenant tenant2 = tenantMapper.select_tenant_by_Name("Tenant A");
+        Tenant tenant2 = tenantMapper.select_tenant_by_name("Tenant17");
         System.out.println(tenant2);
-        Tenant tenant3 = tenantMapper.select_tenant_by_Name_and_Password("Tenant B", "password1232311231212");
+        Tenant tenant3 = tenantMapper.select_tenant_by_name_and_password("Tenant18", "tenantpassword18");
         System.out.println(tenant3);
         */
 
         // project
-        /*
         ProjectMapper projectMapper = sqlSession.getMapper(ProjectMapper.class);
         List<Project> projects = projectMapper.select_all_projects();
         System.out.println(projects);
-        projects.get(5).setProject_name("insert");
+        projects.get(5).setName("insert");
         int res = projectMapper.insert_project(projects.get(5));
         System.out.println("增加的数量: " + res);
 
-        res = projectMapper.delete_project_by_ID(5);
+        res = projectMapper.delete_project_by_id(5);
         System.out.println("删除的数量: " + res);
         int[] delete_ids = {12, 13, 16};
-        res = projectMapper.delete_project_by_IDS(delete_ids);
+        res = projectMapper.delete_project_by_ids(delete_ids);
         System.out.println("批量删除的数量: " + res);
 
-        projects.get(3).setProject_name("update");
+        projects.get(3).setName("update");
         res = projectMapper.update_project(projects.get(3));
         System.out.println("修改的数量: " + res);
 
-        Project p1 = projectMapper.select_project_by_Name("Project Eta");
+        Project p1 = projectMapper.select_project_by_name("Project18");
         System.out.println(p1);
 
         projects = projectMapper.select_projects_by_tenant_id(2);
         System.out.println(projects);
-        */
 
         sqlSession.close();
     }

@@ -14,7 +14,7 @@ public interface ProjectMapper {
     public int update_project(Project project);
 
     public List<Project> select_all_projects();
-    public Project select_project_by_id(@Param("project_id") int ID);
-    public Project select_project_by_name(@Param("project_name") String Name);
-    public List<Project> select_projects_by_tenant_id(@Param("tenant_id") int ID);
+    public Project select_project_by_id(@Param("id") int id);
+    public Project select_project_by_name(@Param("name") String name);
+    public List<Project> select_projects_by_tenant_id(@Param("tenant_id") int id);
 }

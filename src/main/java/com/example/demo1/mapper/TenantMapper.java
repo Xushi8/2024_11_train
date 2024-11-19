@@ -15,6 +15,6 @@ public interface TenantMapper {
 
     public List<Tenant> select_all_tenants();
     public Tenant select_tenant_by_id(int id);
-    public Tenant select_tenant_by_name(@Param("tenant_name") String Name);
-    public Tenant select_tenant_by_name_and_password(@Param("tenant_name") String Name, @Param("tenant_password") String Password);
+    public Tenant select_tenant_by_name(@Param("name") String name);
+    public Tenant select_tenant_by_name_and_password(@Param("name") String name, @Param("password") String password);
 }
