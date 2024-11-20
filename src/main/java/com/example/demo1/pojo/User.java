@@ -18,6 +18,14 @@ public class User {
                 '}';
     }
 
+    public User(Integer id,String TenantName, String Name, Integer role, String password) {
+        this.id = id;
+        this.tenant_name = TenantName;
+        this.name = Name;
+        this.role = role;
+        this.password = password;
+    }
+
     public Integer getId() {
         return id;
     }
