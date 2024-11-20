@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class ProjectServiceImpl implements ProjectService {
@@ -48,5 +49,9 @@ public class ProjectServiceImpl implements ProjectService {
     }
     public List<LocalDate> select_create_time_by_ids(int[] ids){
         return projectMapper.select_create_time_by_ids(ids);
+    }
+
+    public List<Map<String, Object>> select_evaluation_amount(){
+        return projectMapper.select_evaluation_amount();
     }
 }

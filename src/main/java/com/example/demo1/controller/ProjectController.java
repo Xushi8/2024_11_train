@@ -113,14 +113,25 @@ class ProjectController {
     }
 
     @RequestMapping("/update_endDate_by_projectId")
-    public Map update_endDate_by_projectId (@RequestBody Map<String, Object> payload){
+    public Map update_endDate_by_projectId(@RequestBody Map<String, Object> payload) {
         int id = (int) payload.get("id");
         String endDateString = (String) payload.get("evaluationEndDate"); // 提取日期字符串
         LocalDate endDate = LocalDate.parse(endDateString); // 转换为 LocalDate
         int i = projectServiceImpl.update_endDate_by_projectId(id, endDate);
         Map map = new HashMap();
         map.put("isOk", true);
-        map.put("msg","日期确认成功");
+        map.put("msg", "日期确认成功");
+        return map;
+    }
+
+    @RequestMapping("/select_evaluation_amount")
+    public Map select_evaluation_amount(){
+        // project_id, amount
+        List<Map<String, Object>> res =  projectServiceImpl.select_evaluation_amount();
+        Map map = new HashMap();
+        map.put("isOK", res != null);
+        map.put("msg", res != null ? "查询成功" : "查询失败");
+        map.put("data", res);
         return map;
     }
 }
