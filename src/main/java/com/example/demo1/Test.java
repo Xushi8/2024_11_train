@@ -2,7 +2,6 @@ package com.example.demo1;
 
 import com.example.demo1.mapper.ProjectMapper;
 import com.example.demo1.pojo.Project;
-import org.apache.commons.lang3.tuple.Pair;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
