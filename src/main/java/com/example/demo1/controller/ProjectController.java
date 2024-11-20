@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public @RestController
 class ProjectController {
@@ -35,8 +37,13 @@ class ProjectController {
     }
 
     @RequestMapping("/select_all_projects")
-    public List<Project> select_all_projects(){
-        return projectServiceImpl.select_all_projects();
+    public Map select_all_projects(){
+        List<Project> projectList = projectServiceImpl.select_all_projects();
+        Map map = new HashMap();
+        map.put("isOk", true);
+        map.put("projects", projectList);
+        map.put("msg","查询成功");
+        return map;
     }
     @RequestMapping("/select_project_by_id")
     public Project select_project_by_id(@Param("id") int id){
