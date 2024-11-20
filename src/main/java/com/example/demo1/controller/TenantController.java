@@ -6,6 +6,7 @@ import com.example.demo1.service.TenantService;
 import com.example.demo1.service.TenantServiceImpl;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,15 +18,16 @@ public class TenantController {
     private TenantServiceImpl tenantServiceImpl;
 
     @RequestMapping("/insert_tenant")
-    public int insert_tenant(Tenant tenant){
+    public int insert_tenant(@RequestBody Tenant tenant){
         return tenantServiceImpl.insert_tenant(tenant);
     }
 
     @RequestMapping("/delete_tenant_by_id")
-    public int delete_tenant_by_id(int id){
+    public int delete_tenant_by_id(@RequestBody int id){
         return tenantServiceImpl.delete_tenant_by_id(id);
     }
     @RequestMapping("/delete_tenants_by_ids")
+    public int delete_tenants_by_ids(@RequestBody int[] ids){
         return tenantServiceImpl.delete_tenants_by_ids(ids);
     }
 
