@@ -5,6 +5,7 @@ import com.example.demo1.pojo.Project;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -39,4 +40,6 @@ public class ProjectServiceImpl implements ProjectService {
     public List<Project> select_projects_by_tenant_id(int id){
         return projectMapper.select_projects_by_tenant_id(id);
     }
+
+    public int update_endDate_by_projectId(int id, LocalDate endDate){return projectMapper.update_endDate_by_projectId(id, endDate);}
 }

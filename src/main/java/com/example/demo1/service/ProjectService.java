@@ -5,6 +5,7 @@ import com.example.demo1.pojo.Project;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.time.LocalDate;
 import java.util.List;
 
 public interface ProjectService {
@@ -15,8 +16,11 @@ public interface ProjectService {
 
     public int update_project(Project project);
 
+    public int update_endDate_by_projectId(int id, LocalDate endDate);
+
     public List<Project> select_all_projects();
     public Project select_project_by_id(int id);
     public Project select_project_by_name(String name);
     public List<Project> select_projects_by_tenant_id(int id);
+
 }
