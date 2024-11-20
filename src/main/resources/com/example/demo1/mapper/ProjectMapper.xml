@@ -100,6 +100,13 @@
         select * from Projects where tenant_id = #{tenant_id}
     </select>
 
+    <update id="update_endDate_by_projectId">
+        update Projects
+        <set>
+                evaluation_end_date = #{endDate},
+        </set>
+        where id = #{id}
+    </update>
 
 
 <!--    注意下面的是别的组的 project    -->

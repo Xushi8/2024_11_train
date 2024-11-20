@@ -2,6 +2,7 @@ package com.example.demo1.service;
 
 import com.example.demo1.pojo.Project;
 
+import javax.annotation.Resource;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
@@ -14,12 +15,12 @@ public interface ProjectService {
 
     public int update_project(Project project);
 
+    public int update_endDate_by_projectId(int id, LocalDate endDate);
+
     public List<Project> select_all_projects();
     public Project select_project_by_id(int id);
     public Project select_project_by_name(String name);
     public List<Project> select_projects_by_tenant_id(int id);
-
-
     public LocalDate select_create_time_by_id(int id);
     public List<LocalDate> select_create_time_by_ids(int[] ids);
 
