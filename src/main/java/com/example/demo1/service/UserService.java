@@ -18,4 +18,6 @@ public interface UserService {
     public User select_user_by_name(String name);
     public User select_user_by_name_and_password(String name, String password);
     public List<User> select_users_by_project_id(int id);
+
+    public List<String> select_names_by_user_role(int role);
 }

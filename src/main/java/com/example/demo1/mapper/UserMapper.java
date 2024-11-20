@@ -21,4 +21,6 @@ public interface UserMapper {
     public User select_user_by_name(String name);
     public User select_user_by_name_and_password(@Param("name") String name, @Param("password") String password);
     public List<User> select_users_by_project_id(@Param("project_id") int id);
+
+    public List<String> select_names_by_user_role(@Param("role") int role);
 }
