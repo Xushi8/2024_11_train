@@ -69,7 +69,7 @@ class ProjectController {
     public Map select_all_projects(){
         List<Project> projects = projectServiceImpl.select_all_projects();
         Map map = new HashMap();
-        map.put("isOK", projects.size() > 0);
+        map.put("isOk", projects.size() > 0);
         map.put("msg",  projects.size() > 0 ? "查询成功" : "查询失败");
         map.put("projects", projects);
         return map;
