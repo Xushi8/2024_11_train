@@ -107,4 +107,18 @@
         </set>
         where id = #{id}
     </update>
+
+
+<!--    注意下面的是别的组的 project    -->
+    <select id="select_create_time_by_id" resultType="java.time.LocalDate">
+        select create_time from project
+        where id = #{id}
+    </select>
+    <select id="select_create_time_by_ids" resultType="java.time.LocalDate">
+        select create_time from project
+        where id in
+        <foreach collection="array" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </select>
 </mapper>

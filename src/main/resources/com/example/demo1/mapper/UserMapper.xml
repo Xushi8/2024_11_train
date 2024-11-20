@@ -64,4 +64,9 @@
         join Users u ON pu.user_id = u.id
         where pu.project_id = #{project_id}
     </select>
+
+    <select id="select_names_by_user_role" resultType="java.lang.String">
+        select name from Users
+        where role = #{role}
+    </select>
 </mapper>

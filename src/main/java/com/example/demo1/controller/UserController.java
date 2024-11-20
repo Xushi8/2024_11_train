@@ -101,4 +101,15 @@ public class UserController {
     public List<User> select_users_by_project_id(@Param("project_id") int id){
         return userServiceImpl.select_users_by_project_id(id);
     }
+
+    @RequestMapping("/select_names_by_user_role")
+    public Map select_names_by_user_role(@RequestBody Map request){
+        int role = (Integer) request.get("role");
+        List<String> res = userServiceImpl.select_names_by_user_role(role);
+        Map map = new HashMap();
+        map.put("isOK", res.size() > 0);
+        map.put("msg", res.size() > 0 ? "查询成功" : "查询失败");
+        map.put("nameList", res);
+        return map;
+    }
 }

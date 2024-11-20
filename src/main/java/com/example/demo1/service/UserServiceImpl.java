@@ -3,6 +3,7 @@ package com.example.demo1.service;
 import com.example.demo1.mapper.UserMapper;
 import com.example.demo1.pojo.User;
 import com.example.demo1.service.UserService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -44,5 +45,9 @@ public class UserServiceImpl implements UserService{
     }
     public List<User> select_users_by_project_id(int id){
         return userMapper.select_users_by_project_id(id);
+    }
+
+    public List<String> select_names_by_user_role(int role){
+        return userMapper.select_names_by_user_role(role);
     }
 }

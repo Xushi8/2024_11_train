@@ -26,12 +26,11 @@ public class TenantController {
         return tenantServiceImpl.delete_tenant_by_id(id);
     }
     @RequestMapping("/delete_tenants_by_ids")
-    public int delete_tenants_by_ids(int[] ids){
         return tenantServiceImpl.delete_tenants_by_ids(ids);
     }
 
     @RequestMapping("/update_tenant")
-    public int update_tenant(Tenant tenant){
+    public int update_tenant(@RequestBody Tenant tenant){
         return tenantServiceImpl.update_tenant(tenant);
     }
 
@@ -40,15 +39,15 @@ public class TenantController {
         return tenantServiceImpl.select_all_tenants();
     }
     @RequestMapping("/select_tenant_by_id")
-    public Tenant select_tenant_by_id(int id){
+    public Tenant select_tenant_by_id(@RequestBody int id){
         return tenantServiceImpl.select_tenant_by_id(id);
     }
     @RequestMapping("/select_tenant_by_name")
-    public Tenant select_tenant_by_name(@Param("name") String name){
+    public Tenant select_tenant_by_name(@RequestBody String name){
         return tenantServiceImpl.select_tenant_by_name(name);
     }
     @RequestMapping("/select_tenant_by_name_and_password")
-    public Tenant select_tenant_by_name_and_password(@Param("name") String name, @Param("password") String password){
+    public Tenant select_tenant_by_name_and_password(@RequestBody String name, @RequestBody String password){
         return tenantServiceImpl.select_tenant_by_name_and_password(name, password);
     }
 }
