@@ -5,6 +5,7 @@ import com.example.demo1.pojo.Project;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -38,5 +39,13 @@ public class ProjectServiceImpl implements ProjectService {
     }
     public List<Project> select_projects_by_tenant_id(int id){
         return projectMapper.select_projects_by_tenant_id(id);
+    }
+
+
+    public LocalDate select_create_time_by_id(int id){
+        return projectMapper.select_create_time_by_id(id);
+    }
+    public List<LocalDate> select_create_time_by_ids(int[] ids){
+        return projectMapper.select_create_time_by_ids(ids);
     }
 }

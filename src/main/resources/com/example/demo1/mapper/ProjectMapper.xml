@@ -99,4 +99,19 @@
     <select id="select_projects_by_tenant_id" resultType="com.example.demo1.pojo.Project">
         select * from Projects where tenant_id = #{tenant_id}
     </select>
+
+
+
+<!--    注意下面的是别的组的 project    -->
+    <select id="select_create_time_by_id" resultType="java.time.LocalDate">
+        select create_time from project
+        where id = #{id}
+    </select>
+    <select id="select_create_time_by_ids" resultType="java.time.LocalDate">
+        select create_time from project
+        where id in
+        <foreach collection="array" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </select>
 </mapper>

@@ -1,14 +1,13 @@
 package com.example.demo1.controller;
 
 import com.example.demo1.pojo.Project;
-import com.example.demo1.service.ProjectService;
 import com.example.demo1.service.ProjectServiceImpl;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -80,4 +79,29 @@ class ProjectController {
 //    public List<Project> select_projects_by_tenant_id(@Param("tenant_id") int id){
 //        return projectServiceImpl.select_projects_by_tenant_id(id);
 //    }
+
+    @RequestMapping("/select_create_time_by_id")
+    public Map select_create_time_by_id(@RequestBody Map request){
+        int id = Integer.parseInt((String) request.get("id"));
+        LocalDate res = projectServiceImpl.select_create_time_by_id(id);
+        Map map = new HashMap();
+        map.put("isOK", res != null);
+        map.put("msg", res != null ? "查找成功" : "查找失败");
+        map.put("createTime", res);
+        return map;
+    }
+    @RequestMapping("/select_create_time_by_ids")
+    public Map select_create_time_by_ids(@RequestBody Map request){
+        List<Integer> IDS = (List<Integer>) request.get("ids");
+        int[] ids = new int[IDS.size()];
+        for (int i = 0; i < IDS.size(); i++) {
+            ids[i] = IDS.get(i);
+        }
+        List<LocalDate> res = projectServiceImpl.select_create_time_by_ids(ids);
+        Map map = new HashMap();
+        map.put("isOK", res != null);
+        map.put("msg", res != null ? "查找成功" : "查找失败");
+        map.put("createTime", res);
+        return map;
+    }
 }

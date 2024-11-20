@@ -1,10 +1,8 @@
 package com.example.demo1.service;
 
-import com.example.demo1.mapper.ProjectMapper;
 import com.example.demo1.pojo.Project;
-import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import java.time.LocalDate;
 import java.util.List;
 
 public interface ProjectService {
@@ -19,4 +17,8 @@ public interface ProjectService {
     public Project select_project_by_id(int id);
     public Project select_project_by_name(String name);
     public List<Project> select_projects_by_tenant_id(int id);
+
+
+    public LocalDate select_create_time_by_id(int id);
+    public List<LocalDate> select_create_time_by_ids(int[] ids);
 }
