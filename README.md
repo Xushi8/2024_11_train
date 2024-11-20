@@ -12,6 +12,7 @@
 - 密码: `root`
 - 数据库连接: `jdbc:mysql:///train?useSSL=false`  
   > 这里的 `train` 替换为自己的数据库名称。
+
 ---
 
 ### 接口文档
