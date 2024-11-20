@@ -104,4 +104,15 @@ class ProjectController {
         map.put("createTime", res);
         return map;
     }
+
+    @RequestMapping("/select_evaluation_amount")
+    public Map select_evaluation_amount(){
+        // project_id, amount
+        List<Map<String, Object>> res =  projectServiceImpl.select_evaluation_amount();
+        Map map = new HashMap();
+        map.put("isOK", res != null);
+        map.put("msg", res != null ? "查询成功" : "查询失败");
+        map.put("data", res);
+        return map;
+    }
 }

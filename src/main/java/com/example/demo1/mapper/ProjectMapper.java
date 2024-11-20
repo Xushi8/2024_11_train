@@ -1,11 +1,13 @@
 package com.example.demo1.mapper;
 
 import com.example.demo1.pojo.Project;
+import org.apache.commons.lang3.tuple.Pair;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface ProjectMapper {
@@ -23,4 +25,6 @@ public interface ProjectMapper {
 
     public LocalDate select_create_time_by_id(@Param("id") int id);
     public List<LocalDate> select_create_time_by_ids(int[] ids);
+
+    public List<Map<String, Object>> select_evaluation_amount();
 }

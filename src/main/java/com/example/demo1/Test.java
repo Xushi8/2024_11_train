@@ -2,6 +2,7 @@ package com.example.demo1;
 
 import com.example.demo1.mapper.ProjectMapper;
 import com.example.demo1.pojo.Project;
+import org.apache.commons.lang3.tuple.Pair;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -10,6 +11,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
+import java.util.Map;
 
 public class Test {
 
@@ -119,6 +121,13 @@ public class Test {
 
         projects = projectMapper.select_projects_by_tenant_id(2);
         System.out.println(projects);
+
+        List<Map<String, Object>> tmp = projectMapper.select_evaluation_amount();
+        for(Map<String, Object> map : tmp){
+            Integer project_id = (Integer) map.get("project_id");
+            Double amount = (Double) map.get("amount");
+            System.out.println(project_id + "\t" + amount);
+        }
 
         sqlSession.close();
     }

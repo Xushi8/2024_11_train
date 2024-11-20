@@ -4,6 +4,7 @@ import com.example.demo1.pojo.Project;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 public interface ProjectService {
     public int insert_project(Project project);
@@ -21,4 +22,6 @@ public interface ProjectService {
 
     public LocalDate select_create_time_by_id(int id);
     public List<LocalDate> select_create_time_by_ids(int[] ids);
+
+    public List<Map<String, Object>> select_evaluation_amount();
 }

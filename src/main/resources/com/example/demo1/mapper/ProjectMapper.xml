@@ -114,4 +114,15 @@
             #{id}
         </foreach>
     </select>
+
+
+
+
+    <!--    这是别的组的数据库 -->
+
+    <select id="select_evaluation_amount" resultType="java.util.Map">
+        select projectId AS project_id, sum(P) AS amount
+        from project_workload
+        group by projectId
+    </select>
 </mapper>
