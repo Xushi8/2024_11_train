@@ -133,7 +133,7 @@ public class UserController {
 //    }
 
     @RequestMapping("/select_names_by_user_role")
-    public Map select_names_by_user_role(@RequestBody Map request){
+    public Map select_names_by_user_role(@RequestBody Map<String, Object> request){
         int role = (Integer) request.get("role");
         List<String> res = userServiceImpl.select_names_by_user_role(role);
         Map map = new HashMap();

@@ -23,6 +23,46 @@ public class Project {
     private BigDecimal evaluation_amount;
     private String remarks;
 
+    public Project( String name, Integer tenant_id, LocalDate received_date, LocalDate evaluation_start_date, LocalDate evaluation_end_date, String project_overview, String team_location, String valuer, String reviewer, String tech_reviewer, String approver, Integer state, String type, String version, Integer quantity, BigDecimal evaluation_amount, String remarks) {
+        this.name = name;
+        this.tenant_id = tenant_id;
+        this.received_date = received_date;
+        this.evaluation_start_date = evaluation_start_date;
+        this.evaluation_end_date = evaluation_end_date;
+        this.project_overview = project_overview;
+        this.team_location = team_location;
+        this.valuer = valuer;
+        this.reviewer = reviewer;
+        this.tech_reviewer = tech_reviewer;
+        this.approver = approver;
+        this.state = state;
+        this.type = type;
+        this.version = version;
+        this.quantity = quantity;
+        this.evaluation_amount = evaluation_amount;
+        this.remarks = remarks;
+    }
+    public Project(Integer id, String name, Integer tenant_id, LocalDate received_date, LocalDate evaluation_start_date, LocalDate evaluation_end_date, String project_overview, String team_location, String valuer, String reviewer, String tech_reviewer, String approver, Integer state, String type, String version, Integer quantity, BigDecimal evaluation_amount, String remarks) {
+        this.id = id;
+        this.name = name;
+        this.tenant_id = tenant_id;
+        this.received_date = received_date;
+        this.evaluation_start_date = evaluation_start_date;
+        this.evaluation_end_date = evaluation_end_date;
+        this.project_overview = project_overview;
+        this.team_location = team_location;
+        this.valuer = valuer;
+        this.reviewer = reviewer;
+        this.tech_reviewer = tech_reviewer;
+        this.approver = approver;
+        this.state = state;
+        this.type = type;
+        this.version = version;
+        this.quantity = quantity;
+        this.evaluation_amount = evaluation_amount;
+        this.remarks = remarks;
+    }
+
     @Override
     public String toString() {
         return "Project{" +
