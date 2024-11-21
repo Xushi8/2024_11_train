@@ -77,19 +77,26 @@ public class UserController {
 
         String Name = (String) request.get("name");
         String Password = (String) request.get("password");
-        Integer RoleString = (Integer) request.get("role");
+        String RoleString = (String) request.get("role");
+Integer Role=-1;
+        if (RoleString.equals("评估员")){
+            Role=2;
+        }else{
+            Role=3;
+        }
+
         String TenantName = (String) request.get("tenant_name");
         Integer id=(Integer) request.get("id");
-        User user = new User(id,TenantName,Name, RoleString, Password);
+        User user = new User(id,TenantName,Name, Role, Password);
 
         int result=userServiceImpl.update_user(user);
         return result;
     }
 
-//    @RequestMapping("/select_all_users")
-//    public List<User> select_all_users(){
-//        return userServiceImpl.select_all_users();
-//    }
+    @RequestMapping("/select_all_users")
+    public List<User> select_all_users(){
+        return userServiceImpl.select_all_users();
+    }
 //    @RequestMapping("/select_user_by_id")
 //    public User select_user_by_id(int id){
 //        return userServiceImpl.select_user_by_id(id);
