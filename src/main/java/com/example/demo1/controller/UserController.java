@@ -102,7 +102,7 @@ public class UserController {
     @RequestMapping("/select_user_by_name_and_password")
     public Map select_user_by_name_and_password(@RequestParam("name") String name, @RequestParam("password") String password, @RequestParam("role") Integer role){
         Map map = new HashMap();
-        if(role == 1) { // 租户
+        if(role == 2) { // 租户
             Tenant tenant = tenantServiceImpl.select_tenant_by_name_and_password(name, password);
             if(tenant != null) {
                 map.put("isOk", true);
