@@ -57,11 +57,45 @@ class ProjectController {
     }
 
     @RequestMapping("/update_project")
-    public Map update_project(Project project){ // project 需要使用 Map, request.get("xxx"), 然后手动创建一个project
+    public Map update_project(@RequestBody Map request) { // project 需要使用 Map, request.get("xxx"), 然后手动创建一个project
+        Integer id = (Integer) request.get("id");
+        String name = (String) request.get("name");
+        Integer tenant_id = null;
+        String tenantId = (String) request.get("tenant_id");
+        if(tenantId != null){
+            tenant_id = Integer.parseInt(tenantId);
+        }
+        String createDateString = (String) request.get("create_time"); // 提取日期字符串
+        LocalDate received_date = null;
+        if(createDateString != null && !createDateString.isEmpty()){
+            received_date = LocalDate.parse(createDateString); // 转换为 LocalDate
+        }
+        String project_overview = (String) request.get("overView");
+        String team_location = (String) request.get("location");
+        String valuer = (String) request.get("valuer");
+        String reviewer = (String) request.get("reviewer");
+        String tech_reviewer = (String) request.get("tech_reviewer");
+        String approver = (String) request.get("approver");
+        int state = 1;
+
+        Project project = new Project();
+        project.setId(id);
+        project.setName(name);
+        project.setTenant_id(tenant_id);
+        project.setEvaluation_start_date(received_date);
+        project.setProject_overview(project_overview);
+        project.setTeam_location(team_location);
+        project.setValuer(valuer);
+        project.setReviewer(reviewer);
+        project.setTech_reviewer(tech_reviewer);
+        project.setApprover(approver);
+        project.setState(state);
+
         int res = projectServiceImpl.update_project(project);
+
         Map map = new HashMap();
         map.put("isOK", res == 1);
-        map.put("msg", res == 1 ? "添加成功" : "添加失败");
+        map.put("msg", res == 1 ? "修改成功" : "修改失败");
         return map;
     }
 
