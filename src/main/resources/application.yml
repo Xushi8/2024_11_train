@@ -7,7 +7,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    password: root
+    password: Zh159846
     url: jdbc:mysql:///train?useSSL=false
   mvc:
     pathmatch:

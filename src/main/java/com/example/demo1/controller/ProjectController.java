@@ -94,13 +94,15 @@ class ProjectController {
         String reviewer = (String) request.get("reviewer");
         String tech_reviewer = (String) request.get("tech_reviewer");
         String approver = (String) request.get("approver");
+        String oristate =  (String)request.get("state");
         int state = 1;
+        if(oristate.equals("待评估")) state = 1;
+        else if (oristate.equals("待审核")) state = 2;
+        else state = 3;
 
         Project project = new Project();
         project.setId(id);
         project.setName(name);
-        project.setTenant_id(tenant_id);
-        project.setEvaluation_start_date(received_date);
         project.setProject_overview(project_overview);
         project.setTeam_location(team_location);
         project.setValuer(valuer);

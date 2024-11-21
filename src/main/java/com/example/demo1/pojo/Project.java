@@ -23,6 +23,7 @@ public class Project {
     private BigDecimal evaluation_amount;
     private String remarks;
 
+    public Project(){}
     public Project( String name, Integer tenant_id, LocalDate received_date, LocalDate evaluation_start_date, LocalDate evaluation_end_date, String project_overview, String team_location, String valuer, String reviewer, String tech_reviewer, String approver, Integer state, String type, String version, Integer quantity, BigDecimal evaluation_amount, String remarks) {
         this.name = name;
         this.tenant_id = tenant_id;
