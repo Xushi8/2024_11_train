@@ -97,6 +97,7 @@ Integer Role=-1;
     public List<User> select_all_users(){
         return userServiceImpl.select_all_users();
     }
+
 //    @RequestMapping("/select_user_by_id")
 //    public User select_user_by_id(int id){
 //        return userServiceImpl.select_user_by_id(id);
@@ -140,7 +141,7 @@ Integer Role=-1;
 //    }
 
     @RequestMapping("/select_names_by_user_role")
-    public Map select_names_by_user_role(@RequestBody Map request){
+    public Map select_names_by_user_role(@RequestBody Map<String, Object> request){
         int role = (Integer) request.get("role");
         List<String> res = userServiceImpl.select_names_by_user_role(role);
         Map map = new HashMap();

@@ -43,7 +43,9 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     public int update_endDate_by_projectId(int id, LocalDate endDate){return projectMapper.update_endDate_by_projectId(id, endDate);}
-
+    public int update_startDate_by_projectId(int id, LocalDate startDate){
+        return projectMapper.update_startDate_by_projectId(id, startDate);
+    }
     public LocalDate select_create_time_by_id(int id){
         return projectMapper.select_create_time_by_id(id);
     }

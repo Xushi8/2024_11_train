@@ -108,6 +108,14 @@
         where id = #{id}
     </update>
 
+    <update id="update_startDate_by_projectId">
+        update Projects
+        <set>
+            evaluation_start_date = #{startDate},
+        </set>
+        where id = #{id}
+    </update>
+
 
 <!--    注意下面的是别的组的 project    -->
     <select id="select_create_time_by_id" resultType="java.time.LocalDate">

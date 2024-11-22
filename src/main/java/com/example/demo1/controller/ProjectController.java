@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,7 +20,23 @@ class ProjectController {
     private ProjectServiceImpl projectServiceImpl;
 
     @RequestMapping("/insert_project")
-    public Map insert_project(Project project){ // project 需要使用 Map, request.get("xxx"), 然后手动创建一个project
+    public Map insert_project(@RequestBody  Map<String, Object> request){ // project 需要使用 Map, request.get("xxx"), 然后手动创建一个project
+        String name = (String) request.get("name");
+        Integer tenant_id = (Integer) request.get("tenantId");
+        String createDateString = (String) request.get("create_time"); // 提取日期字符串
+        LocalDate received_date = LocalDate.parse(createDateString); // 转换为 LocalDate
+        String project_overview = (String) request.get("overView");
+        String team_location = (String) request.get("location");
+        String valuer = (String) request.get("valuer");
+        String reviewer = (String) request.get("reviewer");
+        String tech_reviewer = (String) request.get("tech_reviewer");
+        String approver = (String) request.get("approver");
+        int state = 1;
+
+
+
+        Project project = new Project( name, tenant_id, received_date, null, null, project_overview, team_location,valuer,reviewer,tech_reviewer,approver,state, null, null, null, null, null);
+
         int res = projectServiceImpl.insert_project(project);
         Map map = new HashMap();
         map.put("isOK", res == 1);
@@ -76,13 +94,15 @@ class ProjectController {
         String reviewer = (String) request.get("reviewer");
         String tech_reviewer = (String) request.get("tech_reviewer");
         String approver = (String) request.get("approver");
+        String oristate =  (String)request.get("state");
         int state = 1;
+        if(oristate.equals("待评估")) state = 1;
+        else if (oristate.equals("待审核")) state = 2;
+        else state = 3;
 
         Project project = new Project();
         project.setId(id);
         project.setName(name);
-        project.setTenant_id(tenant_id);
-        project.setEvaluation_start_date(received_date);
         project.setProject_overview(project_overview);
         project.setTeam_location(team_location);
         project.setValuer(valuer);
@@ -146,6 +166,19 @@ class ProjectController {
         return map;
     }
 
+    @RequestMapping("/update_startDate_by_projectId")
+    public Map update_startDate_by_projectId(@RequestBody Map<String, Object> payload) {
+        int id = (int) payload.get("id");
+        String startDateString = (String) payload.get("evaluationStartDate"); // 提取日期字符串
+        LocalDate startDate = LocalDate.parse(startDateString); // 转换为 LocalDate
+        int i = projectServiceImpl.update_startDate_by_projectId(id, startDate);
+        Map map = new HashMap();
+        map.put("isOk", true);
+        map.put("msg", "开始日期修改成功");
+        return map;
+    }
+
+
     @RequestMapping("/update_endDate_by_projectId")
     public Map update_endDate_by_projectId(@RequestBody Map<String, Object> payload) {
         int id = (int) payload.get("id");
@@ -154,7 +187,7 @@ class ProjectController {
         int i = projectServiceImpl.update_endDate_by_projectId(id, endDate);
         Map map = new HashMap();
         map.put("isOk", true);
-        map.put("msg", "日期确认成功");
+        map.put("msg", "结束日期修改成功");
         return map;
     }
 
