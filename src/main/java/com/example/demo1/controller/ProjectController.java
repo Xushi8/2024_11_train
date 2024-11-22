@@ -201,4 +201,14 @@ class ProjectController {
         map.put("data", res);
         return map;
     }
+
+    @RequestMapping("/delete_project_from_audits_by_id")
+    public Map delete_project_from_audits_by_id(@RequestBody Map request) {
+        int project_id = (Integer) request.get("id");
+        Map map = new HashMap();
+        int res = projectServiceImpl.delete_project_from_audits_by_id(project_id);
+        map.put("isOK", res > 0);
+        map.put("msg", res > 0 ? "删除成功" : "删除失败");
+        return map;
+    }
 }

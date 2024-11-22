@@ -27,4 +27,6 @@ public interface ProjectMapper {
     public List<LocalDate> select_create_time_by_ids(int[] ids);
 
     public List<Map<String, Object>> select_evaluation_amount();
+
+    public int delete_project_from_audits_by_id(@Param("project_id") int project_id);
 }

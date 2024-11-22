@@ -83,6 +83,10 @@
         </foreach>
     </delete>
 
+    <delete id="delete_project_from_audits_by_id">
+        delete from audits where project_id = #{project_id}
+    </delete>
+
 
     <select id="select_all_projects" resultType="com.example.demo1.pojo.Project">
         select * from Projects;

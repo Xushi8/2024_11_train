@@ -56,4 +56,8 @@ public class ProjectServiceImpl implements ProjectService {
     public List<Map<String, Object>> select_evaluation_amount(){
         return projectMapper.select_evaluation_amount();
     }
+
+    public int delete_project_from_audits_by_id(int project_id){
+        return projectMapper.delete_project_from_audits_by_id(project_id);
+    }
 }

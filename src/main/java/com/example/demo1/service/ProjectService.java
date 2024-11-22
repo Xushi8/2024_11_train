@@ -1,6 +1,7 @@
 package com.example.demo1.service;
 
 import com.example.demo1.pojo.Project;
+import org.apache.ibatis.annotations.Param;
 
 import javax.annotation.Resource;
 import java.time.LocalDate;
@@ -25,4 +26,7 @@ public interface ProjectService {
     public List<LocalDate> select_create_time_by_ids(int[] ids);
 
     public List<Map<String, Object>> select_evaluation_amount();
+
+
+    public int delete_project_from_audits_by_id(int project_id);
 }
