@@ -22,7 +22,7 @@ class ProjectController {
     @RequestMapping("/insert_project")
     public Map insert_project(@RequestBody  Map<String, Object> request){ // project 需要使用 Map, request.get("xxx"), 然后手动创建一个project
         String name = (String) request.get("name");
-        int tenant_id = Integer.parseInt((String) request.get("tenantId"));
+        Integer tenant_id = (Integer) request.get("tenantId");
         String createDateString = (String) request.get("create_time"); // 提取日期字符串
         LocalDate received_date = LocalDate.parse(createDateString); // 转换为 LocalDate
         String project_overview = (String) request.get("overView");
